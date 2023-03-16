@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sandwich Maker</title>
+</head>
+<body>
+<h3>Update a Sandwich</h3>
+<hr/>
+{%- for category, message in get_flashed_messages(with_categories = true) %}
+<div class="alert alert-danger">
+    {{ message }}
+</div>
+{%- endfor %}
+<h3><a href="{{ url_for('sandwich') }}">Sandwich List </a></h3>
+
+<form method="POST" action="{{ request.path }}">
+    <label for="sandwichsize">Sandwich Size</label><br>
+    <input type="text" name="sandwichsize" value="{{data.sandwichsize}}"/><br>
+    <label for="price">Price</label><br>
+    <input type="number" step="0.01" name="price" value="{{data.price}}"/><br>
+    <input type="submit" value="Update">
+</form>
+</body>
+</html>
